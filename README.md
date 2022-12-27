@@ -1,19 +1,37 @@
 # telescope-makefile
 Simple telescope extension to run GNU Make targets in Neovim.
 
+** This is a fork of https://github.com/sopa0/telescope-makefile **
+
 *:+1:Supports GNU/BSD make*
 
 Requires the [akinsho/nvim-toggleterm.lua](https://github.com/akinsho/nvim-toggleterm.lua) plugin for now.
 
-## Demonstration
-![Demo gif](https://gist.github.com/ptethng/7ac7f9c91a44f015d8fadea373f000d2/raw/fbdfa68fa3b9133884bd6e402898224db620ebb0/box-210809-2336-36.gif)
-
 ## Install
+For packer.nvim:
+```lua
+require('packer').startup(function(use)
+  use {
+    "de-passage/telescope-makefile",
+    requires = {
+      { "akinsho/toggleterm.nvim" },
+      { 'nvim-telescope/telescope.nvim' }
+    },
+    config = function()
+      require('telescope-makefile').setup({
+        -- see below
+      })
+      require('telescope').load_extension('make')
+    end
+  }
+end
+```
+
 For LunarVim, in your config.lua:
 ```lua
 lvim.plugins = {
   {
-    "ptethng/telescope-makefile",
+    "de-passage/telescope-makefile",
   },
 }
 ```
